@@ -2,5 +2,7 @@
 <resources>
 
     <string name="app_name">书记</string>
+    <string name="action">发表了新的%s</string>
+    <string name="page_count">第%s页</string>
 
 </resources>
