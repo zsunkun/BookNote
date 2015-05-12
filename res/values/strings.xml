@@ -4,5 +4,7 @@
     <string name="app_name">书记</string>
     <string name="action">发表了新的%s</string>
     <string name="page_count">第%s页</string>
+    <string name="card_book_author">作者：%s</string>
+    <string name="card_book_publish">出版社：%s</string>
 
 </resources>

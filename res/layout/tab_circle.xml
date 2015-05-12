@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/selector_shape_gray_round_rectangle"
+            android:background="@drawable/selector_shape_blue_round_rectangle"
             android:paddingBottom="7dp"
             android:paddingLeft="18dp"
             android:paddingRight="18dp"
@@ -47,7 +47,10 @@
         android:id="@+id/circle_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:dividerHeight="0.5dp" >
+        android:divider="@color/gray"
+        android:dividerHeight="0.5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
     </ListView>
 
 </LinearLayout>

@@ -75,13 +75,17 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 					.findViewById(R.id.item_card);
 			viewHolder.mBookImage = (ImageView) convertView
 					.findViewById(R.id.item_book_image);
-			viewHolder.mBookDetail = (TextView) convertView
-					.findViewById(R.id.item_book_detail);
+			viewHolder.mCardBookName = (TextView) convertView
+					.findViewById(R.id.item_card_book_name);
+			viewHolder.mCardBookAuthor = (TextView) convertView
+					.findViewById(R.id.item_card_book_author);
+			viewHolder.mCardBookPublish = (TextView) convertView
+					.findViewById(R.id.item_card_book_publish);
 			viewHolder.mAttention = (Button) convertView
 					.findViewById(R.id.item_attention);
-			viewHolder.mShare = (TextView) convertView
+			viewHolder.mShare = (ImageView) convertView
 					.findViewById(R.id.item_share);
-			viewHolder.mCommment = (TextView) convertView
+			viewHolder.mCommment = (ImageView) convertView
 					.findViewById(R.id.item_comment);
 			convertView.setTag(viewHolder);
 		} else {
@@ -101,7 +105,14 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 				viewHolder.mFrom.setVisibility(View.GONE);
 				viewHolder.mBookImage.setBackgroundDrawable(resources
 						.getDrawable(json.getInt("bookImage")));
-				viewHolder.mBookDetail.setText(json.getString("bookDetail"));
+				viewHolder.mCardBookAuthor.setText(resources.getString(
+						R.string.card_book_author,
+						json.getString("cardBookAuthor")));
+				viewHolder.mCardBookName
+						.setText(json.getString("cardBookName"));
+				viewHolder.mCardBookPublish.setText(resources.getString(
+						R.string.card_book_publish,
+						json.getString("cardBookPublish")));
 				viewHolder.mAttention.setOnClickListener(this);
 			} else {
 				viewHolder.mLinkCard.setVisibility(View.GONE);
@@ -129,10 +140,12 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 		public TextView mPageCount;
 		public LinearLayout mLinkCard;
 		public ImageView mBookImage;
-		public TextView mBookDetail;
+		public TextView mCardBookName;
+		public TextView mCardBookAuthor;
+		public TextView mCardBookPublish;
 		public Button mAttention;
-		public TextView mShare;
-		public TextView mCommment;
+		public ImageView mShare;
+		public ImageView mCommment;
 	}
 
 	@Override
