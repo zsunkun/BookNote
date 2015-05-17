@@ -4,9 +4,13 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import com.example.booknote.BookDetailActivity;
 import com.example.booknote.R;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,9 +24,11 @@ import android.widget.TextView;
 public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 
 	private List<JSONObject> mData;
+	private Context mContext;
 
-	public CircleListAdapter(List<JSONObject> data) {
+	public CircleListAdapter(List<JSONObject> data, Context context) {
 		mData = data;
+		mContext = context;
 	}
 
 	@Override
@@ -47,7 +53,7 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder viewHolder = null;
-		JSONObject json = (JSONObject) getItem(position);
+		final JSONObject json = (JSONObject) getItem(position);
 		Resources resources = parent.getContext().getResources();
 		if (json == null)
 			return null;
@@ -93,7 +99,7 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 		}
 		try {
 			viewHolder.mHeadImage.setBackgroundDrawable(resources
-					.getDrawable((int) json.get("headImage")));
+					.getDrawable((Integer) json.get("headImage")));
 			viewHolder.mName.setText(json.getString("name"));
 			viewHolder.mAction.setText(resources.getString(R.string.action,
 					json.getString("action")));
@@ -120,7 +126,17 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 				viewHolder.mBookName.setText(json.getString("bookName"));
 				viewHolder.mPageCount.setText(resources.getString(
 						R.string.page_count, json.getString("pageCount")));
-				viewHolder.mBookName.setOnClickListener(this);
+				viewHolder.mBookName.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						Intent intent = new Intent(mContext,
+								BookDetailActivity.class);
+						Bundle bundle = new Bundle();
+						intent.putExtra("json", json.toString());
+						mContext.startActivity(intent);
+					}
+				});
 				viewHolder.mShare.setOnClickListener(this);
 				viewHolder.mCommment.setOnClickListener(this);
 			}
@@ -150,7 +166,11 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-
+		switch (v.getId()) {
+		case R.id.item_book_name:
+			break;
+		default:
+			break;
+		}
 	}
 }
