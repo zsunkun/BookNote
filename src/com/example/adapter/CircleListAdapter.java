@@ -52,7 +52,7 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ViewHolder viewHolder = null;
+		final ViewHolder viewHolder;
 		final JSONObject json = (JSONObject) getItem(position);
 		Resources resources = parent.getContext().getResources();
 		if (json == null)
@@ -119,7 +119,14 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 				viewHolder.mCardBookPublish.setText(resources.getString(
 						R.string.card_book_publish,
 						json.getString("cardBookPublish")));
-				viewHolder.mAttention.setOnClickListener(this);
+				viewHolder.mAttention.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						viewHolder.mAttention.setText("已关注 ");
+						viewHolder.mAttention.setBackgroundResource(R.drawable.shape_gray_round_rectangle);
+					}
+				});
 			} else {
 				viewHolder.mLinkCard.setVisibility(View.GONE);
 				viewHolder.mFrom.setVisibility(View.VISIBLE);
@@ -167,7 +174,8 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.item_book_name:
+		case R.id.item_share:
+			// TODO itemShare
 			break;
 		default:
 			break;

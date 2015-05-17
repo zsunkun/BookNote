@@ -24,6 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
+                android:orientation="vertical"
                 android:padding="15dp" >
 
                 <ImageButton
@@ -32,6 +33,15 @@
                     android:layout_height="60dp"
                     android:background="@drawable/ic_write_one"
                     android:padding="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="写摘要"
+                    android:textColor="#000000"
+                    android:textSize="14dp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -45,6 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
+                android:orientation="vertical"
                 android:padding="15dp" >
 
                 <ImageButton
@@ -53,6 +64,15 @@
                     android:layout_height="60dp"
                     android:background="@drawable/ic_write_two"
                     android:padding="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="写书评"
+                    android:textColor="#000000"
+                    android:textSize="14dp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

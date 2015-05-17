@@ -1,6 +1,9 @@
 package com.example.booknote;
 
+import java.lang.reflect.WildcardType;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,10 +28,16 @@ public class WriteNoteMaskActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.button_write_note:
-			// TODO note
+			Intent intent = new Intent(this, WriteActivity.class);
+			intent.putExtra(WriteActivity.EXTRA_IS_COMMENT, false);
+			startActivity(intent);
+			finish();
 			break;
 		case R.id.button_write_abstract:
-			// TODO abstract
+			Intent intentTwo = new Intent(this, WriteActivity.class);
+			intentTwo.putExtra(WriteActivity.EXTRA_IS_COMMENT, true);
+			startActivity(intentTwo);
+			finish();
 			break;
 		default:
 			break;
