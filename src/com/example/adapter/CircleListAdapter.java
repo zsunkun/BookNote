@@ -2,6 +2,7 @@ package com.example.adapter;
 
 import java.util.List;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.booknote.BookDetailActivity;
@@ -21,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class CircleListAdapter extends BaseAdapter implements OnClickListener {
+public class CircleListAdapter extends BaseAdapter {
 
 	private List<JSONObject> mData;
 	private Context mContext;
@@ -124,7 +125,8 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 					@Override
 					public void onClick(View v) {
 						viewHolder.mAttention.setText("已关注 ");
-						viewHolder.mAttention.setBackgroundResource(R.drawable.shape_gray_round_rectangle);
+						viewHolder.mAttention
+								.setBackgroundResource(R.drawable.shape_gray_round_rectangle);
 					}
 				});
 			} else {
@@ -144,8 +146,17 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 						mContext.startActivity(intent);
 					}
 				});
-				viewHolder.mShare.setOnClickListener(this);
-				viewHolder.mCommment.setOnClickListener(this);
+				viewHolder.mShare.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						try {
+							share(json.getString("text"));
+						} catch (JSONException e) {
+						}
+
+					}
+				});
 			}
 		} catch (Exception e) {
 		}
@@ -171,14 +182,14 @@ public class CircleListAdapter extends BaseAdapter implements OnClickListener {
 		public ImageView mCommment;
 	}
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.item_share:
-			// TODO itemShare
-			break;
-		default:
-			break;
-		}
+	private void share(String content) {
+		if (content == null || content.length() <= 0)
+			return;
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("image/*");
+		intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
+		intent.putExtra(Intent.EXTRA_TEXT, content);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		mContext.startActivity(Intent.createChooser(intent, "书记"));
 	}
 }

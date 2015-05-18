@@ -4,6 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -74,7 +75,7 @@ public class BookDetailActivity extends Activity implements OnClickListener {
 			finish();
 			break;
 		case R.id.button_share:
-			// TODO onShare;
+			share(mBookDetail.getText().toString());
 			break;
 
 		default:
@@ -82,4 +83,14 @@ public class BookDetailActivity extends Activity implements OnClickListener {
 		}
 	}
 
+	private void share(String content) {
+		if (content == null || content.length() <= 0)
+			return;
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("image/*");
+		intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
+		intent.putExtra(Intent.EXTRA_TEXT, content);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(Intent.createChooser(intent, "书记"));
+	}
 }
