@@ -23,7 +23,7 @@ public class CircleFrament extends Fragment implements OnClickListener {
 	private View mView;
 	private ListView mListView;
 	private BaseAdapter mAdapter;
-	private List<JSONObject> mData = new ArrayList<JSONObject>();
+	public static List<JSONObject> mData = new ArrayList<JSONObject>();
 	private Button mWriteNote;
 
 	@Override
@@ -50,7 +50,7 @@ public class CircleFrament extends Fragment implements OnClickListener {
 			jsonObject.put("name", "吉米");
 			jsonObject.put("action", "摘抄");
 			jsonObject.put("time", "5分钟前");
-			jsonObject.put("text", "1、每个人都有自己的青春往事\n2、黄渡高严寒和漫长的春天眼看就要过去了");
+			jsonObject.put("text", "1、每个人都有自己的青春往事\n2、黄渡高严寒和漫长的春天眼看就要过去了\n3、黄渡高严寒和漫长的春天眼看就要过去了");
 			jsonObject.put("showCard", false);
 			jsonObject.put("bookImage", R.drawable.iconfont_faxian);
 			jsonObject.put("cardBookAuthor", "路遥");
@@ -65,7 +65,7 @@ public class CircleFrament extends Fragment implements OnClickListener {
 			jsonObject2.put("name", "吉米");
 			jsonObject2.put("action", "摘抄");
 			jsonObject2.put("time", "5分钟前");
-			jsonObject2.put("text", "1、每个人都有自己的青春往事\n2、黄渡高严寒和漫长的春天眼看就要过去了");
+			jsonObject2.put("text", "1、每个人都有自己的青春往事\n2、黄渡高严寒和漫长的春天眼看就要过去了\n3、黄渡高严寒和漫长的春天眼看就要过去了");
 			jsonObject2.put("showCard", true);
 			jsonObject2.put("bookImage", R.drawable.iconfont_faxian);
 			jsonObject2.put("cardBookAuthor", "路遥");
