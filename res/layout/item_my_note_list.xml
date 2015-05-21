@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="7dp"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:paddingBottom="7dp" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,11 +33,11 @@
         android:id="@+id/text_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
         android:maxLines="2"
-        android:layout_marginBottom="10dp"
         android:textColor="#000000" />
 
     <TextView
@@ -46,9 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:drawableRight="@drawable/ic_arrow_black_down"
+        android:paddingBottom="10dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:paddingBottom="10dp"
         android:text="展开更多"
         android:textColor="@color/blue_light" />
 
@@ -72,6 +72,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_gravity="center_vertical"
             android:orientation="vertical" >
 
@@ -79,6 +80,7 @@
                 android:id="@+id/item_card_book_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxWidth="120dp"
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:textStyle="bold" />

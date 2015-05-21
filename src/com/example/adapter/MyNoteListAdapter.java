@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.json.JSONObject;
 
-import com.example.adapter.CircleListAdapter.ViewHolder;
 import com.example.booknote.BookDetailActivity;
 import com.example.booknote.R;
 
@@ -17,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
