@@ -95,6 +95,8 @@ public class MyNoteListAdapter extends BaseAdapter {
 			viewHolder.mAction.setText(resources.getString(R.string.action,
 					json.getString("action")));
 			viewHolder.mTime.setText(json.getString("time"));
+			if (viewHolder.mText.getLineCount() < 2)
+				viewHolder.mMore.setVisibility(View.GONE);
 			viewHolder.mText.setText(json.getString("text"));
 			viewHolder.mMore.setOnClickListener(new OnClickListener() {
 
